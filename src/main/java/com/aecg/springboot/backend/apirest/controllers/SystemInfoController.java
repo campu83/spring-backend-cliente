@@ -4,4 +4,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SystemInfoController {
+	
+	public void prueba() {
+		
+	}
 }
