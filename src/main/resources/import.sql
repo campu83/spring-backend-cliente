@@ -1,0 +1,12 @@
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Puto Amo', 'Campuzano Guillén', 'anton@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Antonio ', 'Campuzano Guillén', 'antoni@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Esteban', 'Campuzano Guillén', 'antonmpuzano@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Antoteban', 'Campuzano Guillén', 'aoecampuzano@hmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Antan', 'Campuzano Guillén', 'anoecampno@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Aasn', 'Campuzano Guillén', 'antonano@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Antonieban', 'Campuzano Guillén', 'antampuzano@hoail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Anbafn', 'Campuzano Guillén', 'antonioecamano@hotmail.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Ann', 'Campuzano Guillén', 'antonioecampuzano@hoil.com', '2019-01-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Tristan', 'Morente Trajero', 'tristan@hoil.com', '2019-05-01');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Trilero', 'Jareno Trajero', 'chilapa@hoil.com', '2017-02-04');
+INSERT INTO clientes(nombre, apellido, email, create_at) VALUES('Pepito', 'Conejo', 'ñaca@hoil.com', '2017-05-05');
