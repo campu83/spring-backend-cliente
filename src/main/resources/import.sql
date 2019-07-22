@@ -21,3 +21,15 @@ INSERT INTO clientes(region_id, nombre, apellido, email, create_at) VALUES(8, 'A
 INSERT INTO clientes(region_id, nombre, apellido, email, create_at) VALUES(6, 'Tristan', 'Morente Trajero', 'tristan@hoil.com', '2019-05-01');
 INSERT INTO clientes(region_id, nombre, apellido, email, create_at) VALUES(5, 'Trilero', 'Jareno Trajero', 'chilapa@hoil.com', '2017-02-04');
 INSERT INTO clientes(region_id, nombre, apellido, email, create_at) VALUES(4, 'Pepito', 'Conejo', 'ñaca@hoil.com', '2017-05-05');
+
+/* Creamos usuarios con sus roles */
+
+INSERT INTO usuarios(username, password, enabled) VALUES ('campu', '$2a$10$UoCe6p45hWtFgAq/WD.ifu8EsK6/F8B6uibOfFltWv25J6aG4exLa', true);
+INSERT INTO usuarios(username, password, enabled) VALUES ('admin', '$2a$10$Sj5dl2ewEDGByLOcuQWUQ.47OuugTtwWjC.C7wsFNKrfGU.oFVIMO', true);
+
+INSERT INTO roles(nombre) VALUES ('ROLE_USER');
+INSERT INTO roles(nombre) VALUES ('ROLE_ADMIN');
+
+INSERT INTO usuarios_roles(usuario_id, role_id) VALUES (1, 1);
+INSERT INTO usuarios_roles(usuario_id, role_id) VALUES (2, 1);
+INSERT INTO usuarios_roles(usuario_id, role_id) VALUES (2, 2);
