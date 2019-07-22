@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.aecg.springboot.backend.apirest</groupId>
 	<artifactId>spring-boot-backend-apirest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>spring-boot-backend-apirest</name>
 	<description>Aprende a crear un api rest</description>
 
@@ -46,6 +46,38 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- libreria para responder a peticiones con paginas html en el template -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!-- librerias para implementar la seguridad -->
+
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-jwt</artifactId>
+			<version>1.0.10.RELEASE</version>
+		</dependency>
+
+		 <!-- estas dos ultimas librerias de seguridad se necesitan porque a partir
+		 de java8 se quitaron del core. No se pone versión porque eso lo maneja spring -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

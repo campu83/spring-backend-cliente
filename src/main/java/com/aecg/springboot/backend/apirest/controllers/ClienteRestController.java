@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
+
+import com.aecg.springboot.backend.apirest.models.entity.Region;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +48,7 @@ public class ClienteRestController {
 	
 	@Autowired
 	private IClienteService clienteService;
-	
+
 	@GetMapping("/clientes")
 	public List<Cliente> index() {		
 		return clienteService.findAll();
@@ -232,5 +234,10 @@ public class ClienteRestController {
 		
 		
 		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
-	}	
+	}
+
+	@GetMapping("/clientes/regiones")
+	public List<Region> listarRegiones(){
+		return clienteService.findAllRegiones();
+	}
 }
