@@ -24,8 +24,8 @@ INSERT INTO clientes(region_id, nombre, apellido, email, create_at) VALUES(4, 'P
 
 /* Creamos usuarios con sus roles */
 
-INSERT INTO usuarios(username, password, enabled) VALUES ('campu', '$2a$10$UoCe6p45hWtFgAq/WD.ifu8EsK6/F8B6uibOfFltWv25J6aG4exLa', true);
-INSERT INTO usuarios(username, password, enabled) VALUES ('admin', '$2a$10$Sj5dl2ewEDGByLOcuQWUQ.47OuugTtwWjC.C7wsFNKrfGU.oFVIMO', true);
+INSERT INTO usuarios(username, password, enabled, nombre, apellidos, email) VALUES ('campu', '$2a$10$UoCe6p45hWtFgAq/WD.ifu8EsK6/F8B6uibOfFltWv25J6aG4exLa', true, 'Antonio', 'Campuzano', 'antonioecampuzano@hotmail.com');
+INSERT INTO usuarios(username, password, enabled, nombre, apellidos, email) VALUES ('admin', '$2a$10$Sj5dl2ewEDGByLOcuQWUQ.47OuugTtwWjC.C7wsFNKrfGU.oFVIMO', true, 'Pepe', 'Conejo', 'tirori@yopmail.com');
 
 INSERT INTO roles(nombre) VALUES ('ROLE_USER');
 INSERT INTO roles(nombre) VALUES ('ROLE_ADMIN');

@@ -11,9 +11,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableAuthorizationServer
@@ -25,6 +28,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
 	@Qualifier("authenticationManager") //Asi indicamos cual queremos cargar.
 	private AuthenticationManager authenticationManager;
+
+	@Autowired
+	private InfoAdicionalToken infoAdicionalToken;
 
 	// Aqui configuramos nuestros endpoints.
 	@Override
@@ -44,7 +50,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		 */
 		clients.inMemory()
 			.withClient("angularapp")
-				.secret(passwordEncoder.encode("12345"))
+				.secret(passwordEncoder.encode("abcde"))
 				.scopes("read", "write")
 				.authorizedGrantTypes("password", "refresh_token")
 				.accessTokenValiditySeconds(3600)
@@ -55,10 +61,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+		//El TokenEnhancerChain es opcional, es para configurar el contenido del jwt de login.
+		TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+		tokenEnhancerChain.setTokenEnhancers(Arrays.asList(infoAdicionalToken, accessTokenConverter()));
 
 		endpoints.authenticationManager(authenticationManager)
 			.tokenStore(tokenStore())
-			.accessTokenConverter(accessTokenConverter());
+			.accessTokenConverter(accessTokenConverter())
+			.tokenEnhancer(tokenEnhancerChain);
 	}
 	@Bean
 	public TokenStore tokenStore() {
@@ -67,7 +77,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
+		// JWT HS256
+		/*JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+		jwtAccessTokenConverter.setSigningKey(JwtConfig.LLAVE_SECRETA); //sino asignamos esto le asigna una el sistema automáticamente
+		*/
+
+		// JWT RS256 (RSA)
 		JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+		jwtAccessTokenConverter.setSigningKey(JwtConfig.RSA_PRIVADA);
+		jwtAccessTokenConverter.setVerifierKey(JwtConfig.RSA_PUBLICA);
+
 		return jwtAccessTokenConverter;
+
 	}
 }

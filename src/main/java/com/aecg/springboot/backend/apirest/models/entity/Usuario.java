@@ -22,6 +22,11 @@ public class Usuario implements Serializable {
 
 	private Boolean enabled;
 
+	private String nombre;
+	private String apellidos;
+	@Column(unique = true)
+	private String email;
+
 	// Relacion de muchos a muchos. Con carga perezosa
 	// La cascada es para que la creación o eliminación de
 	// usuario o de sus roles se haran en cascada.
@@ -75,5 +80,29 @@ public class Usuario implements Serializable {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
