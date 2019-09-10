@@ -1,6 +1,5 @@
 package com.aecg.springboot.backend.apirest;
 
-public class HolaMundo4 {
-
-	//Hola Mundo4
+public class HolaMundo {
+ //Hola Mundo1
 }
