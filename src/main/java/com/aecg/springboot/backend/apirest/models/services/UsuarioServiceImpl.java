@@ -21,9 +21,9 @@ import java.util.stream.Collectors;
 // Esta clase que es de seguridad implementa la clase userDetailsService.
 // Propia de Spring
 @Service
-public class UsuarioService implements IUsuarioService, UserDetailsService {
+public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 
-	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
+	private Logger logger = LoggerFactory.getLogger(UsuarioServiceImpl.class);
 	@Autowired
 	private IUsuarioDao usuarioDao;
 
